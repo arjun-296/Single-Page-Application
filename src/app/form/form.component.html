@@ -1,0 +1,299 @@
+<!-- --------form--------- -->
+<mat-sidenav-container class="font-weight-bold ">
+    <mat-sidenav #sidenav style="background-color:rgb(39, 38, 41)">
+        <mat-nav-list style="color:antiquewhite">
+            <a href="" mat-list-item>ViewTube</a>
+            <a href="" mat-list-item>Upload</a>
+            <a href="" mat-list-item>Live</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="container mt-5">
+            <form action="#" [formGroup]="videodetails">
+                <div class="row" formGroupName="firstgroup">
+                    <div class="column col-12">
+                        <div class="mb-3">
+                            <label class="form-label">URL* :</label>
+                            <input type="text" class="form-control" id="url" name="url" formControlName="url">
+                            <!-- error display-->
+                            <div *ngIf="url.invalid && url.touched" class="alert alert-danger">
+
+                                <div *ngIf="url.errors.required">
+                                    Error: Url cannot be blank
+                                </div>
+                                <div *ngIf="url.errors.minlength">
+                                    Error: Url minimum length should be 15 characters
+                                </div>
+                                <div *ngIf="url.errors.pattern">
+                                    Error: Url format incorrect
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column col-12">
+                            <div class="mb-3">
+                                <label class="form-label">Video Title* :</label>
+                                <input type="text" class="form-control" id="vid_title" formControlName="vid_tit">
+                                <!-- error display-->
+                                <div *ngIf="vid_tit.invalid && vid_tit.touched" class="alert alert-danger">
+
+                                    <div *ngIf="vid_tit.errors.required">
+                                        Error: Video Title cannot be blank
+                                    </div>
+                                    <div *ngIf="vid_tit.errors.minlength">
+                                        Error: Video Title must be valid
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" formGroupName="secondgroup">
+                    <div class="column col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Video Description* :</label>
+                            <input type="text" class="form-control" id="vid_desc" formControlName="vid_desc">
+                            <!-- error display-->
+                            <div *ngIf="vid_desc.invalid && vid_desc.touched" class="alert alert-danger">
+
+                                <div *ngIf="vid_desc.errors.required">
+                                    Error: Video Description cannot be blank
+                                </div>
+                                <div *ngIf="vid_desc.errors.minlength">
+                                    Error: Video Description must be valid
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="column col-12">
+                            <div class="mb-3">
+                                <label class="form-label">Video Duration* :</label>
+                                <input type="text" class="form-control" id="vid_dur" formControlName="vid_dur">
+                                <!-- error display-->
+                                <div *ngIf="vid_dur.invalid && vid_dur.touched" class="alert alert-danger">
+
+                                    <div *ngIf="vid_dur.errors.required">
+                                        Error: Video Duration cannot be blank
+                                    </div>
+                                    <div *ngIf="vid_dur.errors.pattern">
+                                        Error: Video Duration must be in hh:mm:ss format
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" formGroupName="thirdgroup">
+                    <div class="column col-12">
+                        <div class="mb-3">
+                            <label class="form-label">Channel Title* :</label>
+                            <input type="text" class="form-control" id="Channel_title" formControlName="chn_tit">
+                            <!-- error display-->
+                            <div *ngIf="chn_tit.invalid && chn_tit.touched" class="alert alert-danger">
+
+                                <div *ngIf="chn_tit.errors.required">
+                                    Error: Channel Title cannot be blank
+                                </div>
+                                <div *ngIf="chn_tit.errors.minlength">
+                                    Error: Channel Title must be valid
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="column col-12">
+                            <div class="mb-3">
+                                <label class="form-label">Recording Date* :</label>
+                                <input type="date" class="form-control" id="rec_date" formControlName="rec_date">
+                                <!-- error display-->
+                                <div *ngIf="rec_date.invalid && rec_date.touched" class="alert alert-danger">
+
+                                    <div *ngIf="rec_date.errors.required">
+                                        Error: Recording Date cannot be blank
+                                    </div>
+                                    <div *ngIf="rec_date.errors.minlength">
+                                        Error: Recording Date must be valid
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" formGroupName="fourthgroup">
+                    <div class="column col-12">Age Restriction* :
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="age" id="chck1" formControlName="chck1">
+                            <label class="form-check-label">
+                                Yes
+                            </label>
+                        </div>
+                    </div>
+                    <div class="column col-12">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                No
+                            </label>
+                            <input class="form-check-input" type="radio" name="age" id="chck2" formControlName="chck2">
+                        </div>
+                    </div>
+                    <!-- error display
+                    <div *ngIf="chck1.invalid && chck2.invalid" class="alert alert-warning">
+                        <div *ngIf="chck1.errors.required && chck2.errors.required">
+                            Error:Must select one option
+                        </div>
+                    </div> -->
+                </div>
+
+                <br>
+
+                <div class="row" formGroupName="fifthgroup">
+                    <div class="column col-12">
+                        <label for="place">Select place* : </label>
+                        <select name="place" id="city" formControlName="city">
+                            <option value="Delhi">Delhi</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Gujrat">Gujrat</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                        </select>
+                        <div class="row">
+                            <div class="column col-12 border-primary">
+                                <!-- error display-->
+                                <div *ngIf="city.invalid && city.touched" class="alert alert-danger">
+                                    <div *ngIf="city.errors.required ">
+                                        Error:Must select one option
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="column col-12">
+                            <label for="lic"> License* : </label>
+                            <select name="lic" id="lic" formControlName="lic">
+                                <option value="svl">Standard Viewtube License</option>
+                                <option value="ccl">Creative Common License</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="column col-12">
+                                <!-- error display-->
+                                <div *ngIf="lic.invalid && lic.touched" class="alert alert-danger">
+                                    <div *ngIf="lic.errors.required ">
+                                        Error: Must select one option
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="column col-12">
+                            <label for="dist">Distribution* : </label>
+                            <select name="dist" id="dist" formControlName="dist">
+                                <option value="Ev">Everywhere</option>
+                                <option value="monetized">Make this video available only on monetized platforms
+                                </option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="column col-12">
+                                <!-- error display-->
+                                <div *ngIf="dist.invalid && dist.touched" class="alert alert-danger">
+                                    <div *ngIf="dist.errors.required ">
+                                        Error: Must select one option
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" formGroupName="sixthgroup">
+                    <div class="column col-12"> Audience Type* :
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="Audience" id="chck3"
+                                formControlName="chck3">
+                            <label class="form-check-label ">
+                                Yes,its made for Kids
+                            </label>
+                        </div>
+                    </div>
+                    <div class="column col-12">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                Not for kids
+                            </label>
+                            <input class="form-check-input" type="radio" name="Audience" id="chck4" checked
+                                formControlName="chck4">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row" formGroupName="seventhgroup">
+                    <div class="column col-12">
+                        <label for="vc"> Video Category* : </label>
+                        <select name="vc" id="vc" formControlName="vc">
+                            <option value="a">Film & Animation</option>
+                            <option value="b">Autos & Vehicles</option>
+                            <option value="c">Music</option>
+                            <option value="d">Pets & Animals</option>
+                            <option value="e">Sports</option>
+                            <option value="f">Travel & Events</option>
+                            <option value="g">Gaming</option>
+                            <option value="h">People & Blogs</option>
+                            <option value="i">Comedy</option>
+                            <option value="j">Entertainment</option>
+                            <option value="k">News & Politics</option>
+                            <option value="l">Howto & Style</option>
+                            <option value="m">Comedy</option>
+                            <option value="n">Education</option>
+                            <option value="o">Science & Technology</option>
+                            <option value="p">Nonprofits & Activism </option>
+                        </select>
+                        <div class="row">
+                            <div class="column col-12">
+                                <!-- error display-->
+                                <div *ngIf="vc.invalid && vc.touched" class="alert alert-danger">
+                                    <div *ngIf="vc.errors.required ">
+                                        Error:Must select one option
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br> <br>
+
+                    <div class="column col-12">
+                        <label for="vis"> Visibility* : </label>
+                        <select name="vis" id="vis" formControlName="vis">
+                            <option value="a">Private</option>
+                            <option value="b">Public</option>
+                        </select>
+                        <div class="row">
+                            <div class="column col-12">
+                                <!-- error display-->
+                                <div *ngIf="vis.invalid && vis.touched" class="alert alert-danger">
+                                    <div *ngIf="vis.errors.required">
+                                        Error: Must select one option
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="column btn-group col-3">
+                        <button type="button" class="btn btn-danger m-1 p-1">Close</button>
+                        <button type="button" class="btn btn-success m-1  p-1"
+                            [disabled]="videodetails.invalid||videodetails.pristine" (click)="displaymsg();">Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

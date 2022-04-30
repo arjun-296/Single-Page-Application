@@ -1,0 +1,85 @@
+<mat-sidenav-container class="font-weight-bold ">
+    <mat-sidenav #sidenav style="background-color:rgb(39, 38, 41)">
+        <mat-nav-list style="color:antiquewhite">
+            <a href="" mat-list-item>ViewTube</a>
+            <a href="" mat-list-item>Upload</a>
+            <a href="" mat-list-item>Live</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="container mt-5">
+            <form action="#" [formGroup]="livestreamdetails">
+                <div class="row">
+                    <div class="column col-12">
+                        <div class="mb-3">
+                            <label class="form-label" id="fontstyle">Livestream Event Title* :</label>
+                            <input type="text" class="form-control" id="event_tit" name="event_tit"
+                                formControlName="event_tit">
+                            <!-- error display-->
+                            <div *ngIf="event_tit.invalid && event_tit.touched " class="alert alert-danger">
+                                <div *ngIf="event_tit.errors.required">
+                                    Error: Event Title cannot be blank
+                                </div>
+                                <div *ngIf="event_tit.errors.minlength">
+                                    Error: Event Title minimum length should be 100 characters
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column col-12">
+                            <div class="mb-3">
+                                <app-dynamic-chips></app-dynamic-chips>
+                            </div>
+                        </div>
+
+                        <div class="column col-12">
+                            <div class="mb-3">
+                                <label class="form-label" id="fontstyle">Event start date-time* :</label>
+                                <input type="datetime-local" class="form-control" id="start_date"
+                                    formControlName="start_date">
+                                <!-- error display-->
+                                <div *ngIf="start_date.invalid && start_date.touched" class="alert alert-danger">
+                                    Error: start date must be greater than the current date
+                                    <div *ngIf="start_date.errors.required">
+                                        Error: start date cannot be blank
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column col-12">
+                        <div class="mb-3">
+                            <label class="form-label" id="fontstyle">Event end date-time* :</label>
+                            <input type="datetime-local" class="form-control" id="end_date" formControlName="end_date">
+                            <!-- error display-->
+                            <div *ngIf="end_date.invalid && end_date.touched" class="alert alert-danger">
+                                Error: end date must be greater than the current date
+                                <div *ngIf="end_date.errors.required">
+                                    Error: end date cannot be blank
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="column col-12">
+                        <div class="row justify-content-end">
+                            <div class="column btn-group col-3">
+                                <button type="button" class="btn btn-danger m-1 p-1">Close</button>
+                                <button type="button" class="btn btn-success m-1  p-1"
+                                    [disabled]="livestreamdetails.invalid || livestreamdetails.pristine">Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,39 @@
+.spacer1 {
+  margin-left: 15px;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.sb {
+  margin-left: 23rem;
+}
+.s_ic {
+  margin: 5px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.l_ic {
+  margin: 6px;
+}
+.list {
+  background-color: rgb(89, 183, 233);
+  margin-top: 1rem;
+}
+.cont {
+  border: 1px solid black;
+}
+
+.example-card {
+  max-width: 400px;
+}
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+#toggler {
+  background-color: rgb(237, 20, 103);
+}
+.example-chip-list {
+  width: 100%;
+}

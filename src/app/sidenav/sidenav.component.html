@@ -1,0 +1,50 @@
+<mat-toolbar style="background-color: rgb(243, 71, 137);">
+    <mat-toolbar-row>
+        <!-- <button> -->
+        <button mat-button id="toggler" style="background-color: rgb(243, 71, 137)">
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+
+
+        <span class="spacer1">Viewtube</span>
+
+        <input type="text" placeholder="search" class="sb">
+
+        <mat-icon matSuffix class="s_ic" style="cursor: pointer">search</mat-icon>
+        <mat-icon matSuffix class="s_ic" style="cursor: pointer">mic</mat-icon>
+
+        <span class="example-spacer"></span>
+        <mat-icon matSuffix class="l_ic" style="cursor: pointer">notifications</mat-icon>
+
+        <button mat-button id="toggler" style="background-color: rgb(243, 71, 137)">
+            <mat-icon (click)="switch();">video_call</mat-icon>
+        </button>
+
+        <mat-icon matSuffix class="l_ic" style="cursor: pointer">view_module</mat-icon>
+        <mat-icon matSuffix class="l_ic" style="cursor: pointer">person</mat-icon>
+
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="font-weight-bold ">
+    <mat-sidenav #sidenav style="background-color:rgb(39, 38, 41)">
+        <mat-nav-list style="color:antiquewhite">
+            <a href="" mat-list-item>ViewTube</a>
+            <a mat-list-item>Upload</a>
+            <a mat-list-item routerLink="/livestream" (click)="switchtolivform();">Live Stream</a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content [hidden]="result1">
+
+        <app-chips-bar [hidden]="result"></app-chips-bar>
+        <app-video-content [hidden]="result"></app-video-content>
+        <app-form [hidden]="!result"></app-form>
+
+    </mat-sidenav-content>
+
+    <mat-sidenav-content [hidden]="!result1">
+        <app-livestream></app-livestream>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,33 @@
+.card {
+  width: 295px;
+  height: 280px;
+  display: inline-block;
+  margin: 20px;
+  background-color: rgb(119, 253, 253);
+}
+.card img {
+  height: 150px;
+}
+.card h5 {
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  letter-spacing: 0.25px;
+  font-weight: 900;
+  font-size: 1em;
+  -webkit-line-clamp: 2;
+}
+#duration {
+  background-color: black;
+  position: absolute;
+  top: 45%;
+  right: 4%;
+  z-index: 1;
+  width: auto;
+  height: 20px;
+  text-align: right;
+  padding: 1px 6px;
+  color: antiquewhite;
+}

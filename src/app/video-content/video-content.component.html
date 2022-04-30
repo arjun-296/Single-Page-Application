@@ -1,0 +1,22 @@
+<!-- Display video cards here with 
+    poster-image
+    length of video in hh:mm:ss format
+    2-liner description
+    duration since last published 
+    number of views
+-->
+<mat-card style="background-color: rgba(94, 88, 88, 0.59);" app-player matRipple class="card"
+    *ngFor="let video of video$ | async">
+    <a href="#">
+        <img mat-card-image [src]="video.snippet.thumbnails.medium.url" />
+    </a>
+    <div id="duration">{{ video.contentDetails.length }}</div>
+    <mat-card-content>
+        <h5 id="title">{{ video.snippet.title }}</h5>
+        <p id="channelname">{{ video.snippet.channelTitle }}</p>
+        <p id="viewsandtime">
+            {{ video.statistics.viewCount }} views .
+            {{ video.snippet.relativeTime }}
+        </p>
+    </mat-card-content>
+</mat-card>
